@@ -10,7 +10,9 @@
             <p class="text-gray-600">{{ $product->category->name ?? 'Uncategorized' }}</p>
             <p class="text-lg font-bold mt-2">${{ number_format($product->price, 2) }}</p>
             <p class="text-sm text-gray-500">Stock: {{ $product->stock }}</p>
-            <a href="#" class="mt-3 inline-block bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Add to Cart</a>
+            <a href="{{ route('cart.add', $product->id) }}" class="mt-3 inline-block bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">
+                Add to Cart
+            </a>
         </div>
         @empty
         <p>No products yet. Run seeder.</p>
