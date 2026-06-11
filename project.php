@@ -53,3 +53,4 @@ echo "Total: {$order['total']} USD\n";
 foreach ($order['items'] as $item) {
     echo "- {$item['name']} ({$item['price']} USD)\n";
 }
+//faf
