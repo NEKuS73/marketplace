@@ -11,6 +11,7 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">Home</x-nav-link>
                     @auth
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">Dashboard</x-nav-link>
+                    <x-nav-link :href="route('orders.index')" :active="request()->routeIs('orders.index')">My Orders</x-nav-link>
                     @if(Auth::user()->is_admin)
                     <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.*')">Admin Panel</x-nav-link>
                     @endif
@@ -52,6 +53,7 @@
             <x-responsive-nav-link :href="route('home')">Home</x-responsive-nav-link>
             @auth
             <x-responsive-nav-link :href="route('dashboard')">Dashboard</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('orders.index')">My Orders</x-responsive-nav-link>
             @if(Auth::user()->is_admin)
             <x-responsive-nav-link :href="route('admin.products.index')">Admin Panel</x-responsive-nav-link>
             @endif

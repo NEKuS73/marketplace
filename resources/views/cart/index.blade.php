@@ -44,7 +44,7 @@
         </tbody>
     </table>
     <div class="mt-4">
-        <a href="#" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Proceed to Checkout</a>
+        <a href="{{ route('checkout.index') }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Proceed to Checkout</a>
     </div>
     @else
     <p>Your cart is empty.</p>
