@@ -10,27 +10,25 @@ class ProductSeeder extends Seeder
 {
     public function run()
     {
-        // Создаём категорию
         $category = Category::create([
-            'name' => 'Электроника',
-            'slug' => 'electronika',
-            'description' => 'Ноутбуки, смартфоны, аксессуары'
+            'name' => 'Electronics',
+            'slug' => 'electronics',
+            'description' => 'Laptops, mice, keyboards'
         ]);
 
-        // Товары
         Product::create([
-            'name' => 'Ноутбук',
-            'slug' => 'noutbuk',
-            'description' => 'Мощный ноутбук для работы и игр',
+            'name' => 'Laptop',
+            'slug' => 'laptop',
+            'description' => 'Powerful laptop',
             'price' => 599.99,
             'stock' => 10,
             'category_id' => $category->id
         ]);
 
         Product::create([
-            'name' => 'Мышь',
-            'slug' => 'mysh',
-            'description' => 'Беспроводная мышь',
+            'name' => 'Mouse',
+            'slug' => 'mouse',
+            'description' => 'Wireless mouse',
             'price' => 19.99,
             'stock' => 50,
             'category_id' => $category->id

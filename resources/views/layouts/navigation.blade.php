@@ -11,6 +11,9 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">Home</x-nav-link>
                     @auth
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">Dashboard</x-nav-link>
+                    @if(Auth::user()->is_admin)
+                    <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.*')">Admin Panel</x-nav-link>
+                    @endif
                     @endauth
                 </div>
             </div>
@@ -47,7 +50,12 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('home')">Home</x-responsive-nav-link>
-            @auth<x-responsive-nav-link :href="route('dashboard')">Dashboard</x-responsive-nav-link>@endauth
+            @auth
+            <x-responsive-nav-link :href="route('dashboard')">Dashboard</x-responsive-nav-link>
+            @if(Auth::user()->is_admin)
+            <x-responsive-nav-link :href="route('admin.products.index')">Admin Panel</x-responsive-nav-link>
+            @endif
+            @endauth
         </div>
         @auth
         <div class="pt-4 pb-1 border-t border-gray-200">

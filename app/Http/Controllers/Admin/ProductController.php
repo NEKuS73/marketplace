@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -11,8 +11,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('category')->paginate(12);
-        return view('products.index', compact('products'));
+        $products = Product::with('category')->paginate(15);
+        return view('admin.products.index', compact('products'));
     }
 
     public function create()
