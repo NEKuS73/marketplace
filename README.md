@@ -12,7 +12,8 @@
 
 ## 📌 Project Overview
 
-Full‑stack e‑commerce application with customer storefront and administrative panel
+Full‑stack e‑commerce application with customer storefront and administrative panel.
+Built with Laravel 11, Blade, MySQL, and Tailwind CSS.
 
 ---
 
@@ -20,56 +21,53 @@ Full‑stack e‑commerce application with customer storefront and administrativ
 
 ### Customer Storefront
 
-- Product catalog with pagination, search, and category filter
+- Product catalog (list view, pagination)
 - Product detail page
 - Shopping cart (session‑based, add/remove/update quantity)
-- Checkout with address form and order placement (payment simulation)
+- Checkout with address and phone form
 - User authentication (registration, login, profile)
-- Order history with status tracking
+- Order history with status tracking (for logged‑in users)
 
 ### Admin Panel
 
-- Dashboard with basic statistics (orders count, revenue)
-- Product management (CRUD, image upload)
+- Product management (CRUD)
 - Category management (CRUD)
 - Order management (view all orders, change status)
-- User management (view users, assign admin role)
+- Role‑based access control (admin middleware)
 
 ### Technical Requirements
 
 - Laravel 11 MVC with Blade templates
-- MySQL database + Eloquent ORM (migrations, relationships)
-- React 18 components integrated via Vite (cart, product filter)
-- REST API secured with Laravel Sanctum
-- Role‑based access control (customer / admin)
-- Email notifications for order confirmation
-- Deployed on production server (VPS)
+- MySQL + Eloquent ORM (migrations, relationships)
+- Session‑based cart
+- Tailwind CSS for styling
+- Git / GitHub with commit history from May 24
 
 ---
 
-## 🧰 Tech Stack (as per syllabus)
+## 🧰 Tech Stack
 
-| Area            | Technology                          |
-| --------------- | ----------------------------------- |
-| Backend         | PHP 8.5, Laravel 11, Composer       |
-| Frontend        | Blade, React 18, Tailwind CSS, Vite |
-| Database        | MySQL, Eloquent ORM                 |
-| Auth & API      | Laravel Breeze, Laravel Sanctum     |
-| Version control | Git / GitHub (regular commits)      |
-| Server          | XAMPP (local), VPS (production)     |
+| Area            | Technology             |
+| --------------- | ---------------------- |
+| Backend         | PHP, Laravel, Composer |
+| Frontend        | Blade, Tailwind CSS    |
+| Database        | MySQL, Eloquent ORM    |
+| Auth            | Laravel Breeze         |
+| Version control | Git / GitHub           |
+| Server          | XAMPP (local)          |
 
 ---
 
-## 🚀 Quick Start (for evaluation)
+## 🚀 Quick Start
 
 ```bash
 git clone https://github.com/NEKuS73/marketplace.git
 cd marketplace
 composer install
-npm install && npm run build
+npm install (cmd c/ npm install)
+npm run build (cmd c/ npm run build)
 cp .env.example .env
-# configure database in .env (MySQL)
+# set database credentials in .env (MySQL)
 php artisan migrate --seed
-php artisan storage:link
 php artisan serve
 ```
