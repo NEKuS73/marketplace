@@ -45,5 +45,6 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/my-orders', [App\Http\Controllers\OrderController::class, 'index'])->name('orders.index');
 });
+Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'show'])->name('product.show');
 
 require __DIR__ . '/auth.php';

@@ -12,8 +12,8 @@
 
 ## 📌 Project Overview
 
-Full‑stack e‑commerce application with customer storefront and administrative panel.
-Built with Laravel 11, Blade, MySQL, and Tailwind CSS.
+E‑commerce application with customer storefront and administrative panel.
+Built with Laravel 13, Blade, MySQL, and Tailwind CSS.
 
 ---
 
@@ -37,7 +37,7 @@ Built with Laravel 11, Blade, MySQL, and Tailwind CSS.
 
 ### Technical Requirements
 
-- Laravel 11 MVC with Blade templates
+- Laravel 13 MVC with Blade templates
 - MySQL + Eloquent ORM (migrations, relationships)
 - Session‑based cart
 - Tailwind CSS for styling
@@ -47,14 +47,14 @@ Built with Laravel 11, Blade, MySQL, and Tailwind CSS.
 
 ## 🧰 Tech Stack
 
-| Area            | Technology             |
-| --------------- | ---------------------- |
-| Backend         | PHP, Laravel, Composer |
-| Frontend        | Blade, Tailwind CSS    |
-| Database        | MySQL, Eloquent ORM    |
-| Auth            | Laravel Breeze         |
-| Version control | Git / GitHub           |
-| Server          | XAMPP (local)          |
+| Area            | Technology                    |
+| --------------- | ----------------------------- |
+| Backend         | PHP 8.5, Laravel 13, Composer |
+| Frontend        | Blade, Tailwind CSS           |
+| Database        | MySQL, Eloquent ORM           |
+| Auth            | Laravel Breeze                |
+| Version control | Git / GitHub                  |
+| Server          | XAMPP (local)                 |
 
 ---
 

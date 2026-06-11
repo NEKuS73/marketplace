@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -25,14 +26,28 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|unique:products,slug',
+            'slug' => 'nullable|string|unique:products,slug',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
             'category_id' => 'required|exists:categories,id',
         ]);
 
-        Product::create($request->all());
+        $data = $request->all();
+
+        // Автоматическая генерация slug, если не указан
+        if (empty($data['slug'])) {
+            $slug = Str::slug($data['name']);
+            // Гарантируем уникальность
+            $original = $slug;
+            $counter = 1;
+            while (Product::where('slug', $slug)->exists()) {
+                $slug = $original . '-' . $counter++;
+            }
+            $data['slug'] = $slug;
+        }
+
+        Product::create($data);
         return redirect()->route('admin.products.index')->with('success', 'Product created.');
     }
 
@@ -46,14 +61,28 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|unique:products,slug,' . $product->id,
+            'slug' => 'nullable|string|unique:products,slug,' . $product->id,
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
             'category_id' => 'required|exists:categories,id',
         ]);
 
-        $product->update($request->all());
+        $data = $request->all();
+
+        // Автоматическая генерация slug, если не указан
+        if (empty($data['slug'])) {
+            $slug = Str::slug($data['name']);
+            // Гарантируем уникальность, исключая текущий товар
+            $original = $slug;
+            $counter = 1;
+            while (Product::where('slug', $slug)->where('id', '!=', $product->id)->exists()) {
+                $slug = $original . '-' . $counter++;
+            }
+            $data['slug'] = $slug;
+        }
+
+        $product->update($data);
         return redirect()->route('admin.products.index')->with('success', 'Product updated.');
     }
 

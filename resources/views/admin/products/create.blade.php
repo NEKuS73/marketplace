@@ -10,10 +10,6 @@
             <input type="text" name="name" id="name" class="border p-2 w-full" value="{{ old('name') }}" required>
         </div>
         <div class="mb-4">
-            <label for="slug" class="block">Slug</label>
-            <input type="text" name="slug" id="slug" class="border p-2 w-full" value="{{ old('slug') }}" required>
-        </div>
-        <div class="mb-4">
             <label for="description" class="block">Description</label>
             <textarea name="description" id="description" rows="4" class="border p-2 w-full">{{ old('description') }}</textarea>
         </div>
