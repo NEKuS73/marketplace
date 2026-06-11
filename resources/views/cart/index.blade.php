@@ -8,6 +8,14 @@
     <div class="bg-green-100 text-green-800 p-2 mb-4 rounded">{{ session('success') }}</div>
     @endif
 
+    @if($errors->any())
+    <div class="bg-red-100 text-red-800 p-2 mb-4 rounded">
+        @foreach($errors->all() as $error)
+        <p>{{ $error }}</p>
+        @endforeach
+    </div>
+    @endif
+
     @if(isset($products) && count($products) > 0)
     <table class="min-w-full bg-white border">
         <thead>

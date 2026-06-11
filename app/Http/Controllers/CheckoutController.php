@@ -36,6 +36,15 @@ class CheckoutController extends Controller
         }
 
         $products = \App\Models\Product::whereIn('id', array_keys($cart))->get();
+
+        // Проверка доступного количества на складе
+        foreach ($products as $product) {
+            $requestedQty = $cart[$product->id]['quantity'];
+            if ($product->stock < $requestedQty) {
+                return redirect()->route('cart.index')->withErrors("Not enough stock for {$product->name}. Only {$product->stock} left.");
+            }
+        }
+
         $total = 0;
         foreach ($products as $product) {
             $total += $product->price * $cart[$product->id]['quantity'];
@@ -56,6 +65,9 @@ class CheckoutController extends Controller
                 'quantity'   => $cart[$product->id]['quantity'],
                 'price'      => $product->price,
             ]);
+
+            // Уменьшаем количество товара на складе
+            $product->decrement('stock', $cart[$product->id]['quantity']);
         }
 
         // очистка корзины
